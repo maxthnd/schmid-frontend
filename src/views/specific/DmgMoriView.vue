@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
-import Showcase from "@/components/dmgmori-components/Showcase.vue";
+import Banner from "../../components/utils/Banner.vue";
+import Showcase from "../../components/dmgmori-components/Showcase.vue";
 
 const showcase_title = "DMG MORI EXKLUSIVE";
 const showcase_text = "Erleben Sie Maschinenexklusivität bei der SCHMID GMBH";

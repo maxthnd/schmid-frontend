@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const navItems = ref([
+interface SubmenuItem {
+  name: string;
+  url: string;
+}
+
+interface NavItem {
+  title: string;
+  submenu: SubmenuItem[];
+}
+
+const navItems = ref<NavItem[]>([
   {
     title: 'Startseite',
     submenu: [
-      { name: 'Startseite', url: '/'}
+      { name: 'Startseite', url: '/' }
     ]
   },
   {
@@ -33,7 +43,7 @@ const navItems = ref([
     submenu: [
       { name: 'Karriereportal', url: '/karriereportal' },
       { name: 'Weitere Informationen', url: '/weitere-informationen' },
-      { name: 'Dashboard', url: '/dashboard' },
+      { name: 'Dashboard', url: '/dashboard' }
     ]
   }
 ]);
@@ -41,30 +51,35 @@ const navItems = ref([
 const isMenuVisible = ref(false);
 const menuAnimationClass = ref('');
 
-const showMenu = () => {
+const showMenu = (): void => {
   menuAnimationClass.value = 'slide-down';
   isMenuVisible.value = true;
 };
 
-const hideMenu = () => {
+const hideMenu = (): void => {
   menuAnimationClass.value = 'fade-out';
   setTimeout(() => {
     isMenuVisible.value = false;
   }, 300);
 };
 
-const handleScroll = () => {
+const handleScroll = (): void => {
   hideMenu();
 };
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  if (typeof globalThis !== 'undefined') {
+    globalThis.addEventListener('scroll', handleScroll);
+  }
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
+  if (typeof globalThis !== 'undefined') {
+    globalThis.removeEventListener('scroll', handleScroll);
+  }
 });
 </script>
+
 
 <template>
   <div

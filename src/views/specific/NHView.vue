@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
-import HeadlineNH from "@/components/nh-components/HeadlineNH.vue";
-import CardTopic from "@/components/core/CardTopic.vue";
-import SustainabilityGoals from "@/components/nh-components/SustainabilityGoals.vue";
+import Banner from "../../components/utils/Banner.vue";
+import HeadlineNH from "../../components/nh-components/HeadlineNH.vue";
+import CardTopic from "../../components/core/CardTopic.vue";
+import SustainabilityGoals from "../../components/nh-components/SustainabilityGoals.vue";
 </script>
 
 <template>

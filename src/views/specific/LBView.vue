@@ -1,8 +1,19 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
+import Banner from "../../components/utils/Banner.vue";
 import { ref } from 'vue';
 
-const formData = ref({
+
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  serviceType: string;
+  employeeCount: string;
+  machineFile: File | null;
+  message: string;
+}
+
+const formData = ref<FormData>({
   name: '',
   email: '',
   company: '',
@@ -12,8 +23,11 @@ const formData = ref({
   message: '',
 });
 
-const handleFileUpload = (event) => {
-  formData.value.machineFile = event.target.files[0];
+const handleFileUpload = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  if (target.files && target.files.length > 0) {
+    formData.value.machineFile = target.files[0];
+  }
 };
 
 const submitForm = () => {

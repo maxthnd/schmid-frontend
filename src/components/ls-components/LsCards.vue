@@ -1,22 +1,37 @@
-<script setup lang="ts">
+<script lang="ts">
 import { ref, onMounted } from 'vue';
-import CardTopic from '../core/CardTopic.vue';
+import { defineComponent } from 'vue';
 
-const services = ref([]);
+interface Service {
+  title: string;
+  description: string;
+  details: string;
+  imageUrl: string;
+}
 
-const fetchServices = async () => {
-  try {
-    const response = await fetch('/assets/coreservices.json');
-    const data = await response.json();
-    services.value = data.services;
-  } catch (error) {
-    console.error("Fehler beim Laden der Services:", error);
+export default defineComponent({
+  setup() {
+    const services = ref<Service[]>([]);
+
+    const fetchServices = async () => {
+      try {
+        const response = await fetch('/assets/coreservices.json');
+        const data = await response.json();
+        services.value = data.services;
+      } catch (error) {
+        console.error("Fehler beim Laden der Services:", error);
+      }
+    };
+
+    onMounted(() => {
+      console.log('LsCards component mounted');
+      fetchServices();
+    });
+
+    return {
+      services
+    };
   }
-};
-
-onMounted(() => {
-  console.log('LsCards component mounted');
-  fetchServices();
 });
 </script>
 
@@ -32,6 +47,7 @@ onMounted(() => {
     />
   </div>
 </template>
+
 
 <style scoped>
 .leistungsspektrum-services {

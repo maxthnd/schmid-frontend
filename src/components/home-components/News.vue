@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SchmidcardSmallbig from "@/components/utils/schmidcard-smallbig.vue";
+import SchmidcardSmallbig from "../utils/schmidcard-smallbig.vue";
 
 const cardData = [
   { title: 'Tagesgeschäft', titleImage: 'assets/images/news/tagesgeschaeft.png', newsRef: 'vorrichtungs-und-anlagenbau', description: 'Gewinnen Sie einen Einblick in unser Tagesgeschäft und damit allen verbundenen Aufgaben.' },

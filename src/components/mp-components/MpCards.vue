@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
-import SchmidcardMachinecard from "@/components/utils/schmidcard-machinecard.vue";
+import SchmidcardMachinecard from "../utils/schmidcard-machinecard.vue";
 import MachinePopup from "./MachinePopup.vue";
 
 // Typen anpassen
@@ -76,7 +76,7 @@ const closePopup = () => {
 
     <MachinePopup
         v-if="isPopupVisible"
-        :machine="selectedMachine"
+        :machine="selectedMachine || { title: '', image: '' }"
         :isVisible="isPopupVisible"
         @close="closePopup"
     />

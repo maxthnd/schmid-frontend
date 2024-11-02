@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
-import MpCards from "@/components/mp-components/MpCards.vue";
+import Banner from "../../components/utils/Banner.vue";
+import MpCards from "../../components/mp-components/MpCards.vue";
 
 const mp_text = "Um die hohen Anforderungen unserer Kunden gerecht zu werden, fertigt die SCHMID GmbH nach dem neusten Stand der Technik. Mit weitreichenden Know-how und modernster Technologie bieten wir ein großes Leistungsspektrum in vielen Bereichen. Der moderne Maschinenpark der SCHMID GmbH ist das Herzstück unserer umfangreichen und flexiblen Produktionsstraße. Erleben Sie Exklusivität von DMGMORI bei SCHMID.";
 const mp_title = "Maschinenpark";

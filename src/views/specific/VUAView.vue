@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
-import VuaCards from "@/components/vua-components/VuaCards.vue";
+import Banner from "../../components/utils/Banner.vue";
+import VuaCards from "../../components/vua-components/VuaCards.vue";
 
 const vua_text = "Die SCHMID GmbH ist Spezialist in der Herstellung von Vorrichtungen und Anlagen - ein zukunftsorientiertes Unternehmen, dass durch eine qualitativ hochwertige und zuverlässige Fertigungstechnologie namhafte Kunden gewinnen konnte.\n" +
     "        Auf höchstem technischen Niveau werden Sondermaschinen, Automationsanlagen, Lehren und Werkzeuge produziert. Der moderne Maschinenpark ist das Herzstück unserer Fertigung. Somit wird nicht nur in der Arbeitsvorbereitung mit neuester Technik gearbeitet, sondern auch im Bereich CAD / CAM und in den Abteilungen Zuschnitt, Schlosserei, Fräserei, Montage sowie in der Messtechnik.";

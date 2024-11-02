@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SchmidcardSmalltopiccards from "@/components/utils/schmidcard-smalltopiccards.vue";
+import SchmidcardSmalltopiccards from "../../components/utils/schmidcard-smalltopiccards.vue";
 const cardData = [
   {
     title: 'Ressourcen',

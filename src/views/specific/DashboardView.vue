@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import WelcomeHeader from "@/components/dashboard/WelcomeHeader.vue";
 import { onMounted } from "vue";
 import { onUnmounted } from "vue";
-import JobBoard from "@/components/dashboard/JobBoard.vue";
+import JobBoard from "../../components/dashboard/JobBoard.vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
+import WelcomeHeader from "../../components/dashboard/WelcomeHeader.vue";
 
 const router = useRouter();
 

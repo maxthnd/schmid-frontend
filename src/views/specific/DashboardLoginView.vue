@@ -14,7 +14,7 @@
 </template>
 <script lang="ts">
 import axios from 'axios';
-import { userStore } from "@/store/userStore";
+import { userStore } from "../../store/userStore";
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 

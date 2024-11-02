@@ -1,10 +1,10 @@
 
 <script setup lang="ts">
-import Slideshow from "@/components/home-components/Slideshow.vue";
-import Sitecards from "@/components/home-components/Sitecards.vue";
-import News from "@/components/home-components/News.vue";
+import Slideshow from "../components/home-components/Slideshow.vue";
+import Sitecards from "../components/home-components/Sitecards.vue";
+import News from "../components/home-components/News.vue";
 import { ref, onMounted } from "vue";
-import CardTopic from "@/components/core/CardTopic.vue";
+import CardTopic from "../components/core/CardTopic.vue";
 
 const sitecardsRef = ref(null);
 const newsRef = ref(null);

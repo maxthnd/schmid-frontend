@@ -25,16 +25,28 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue';
 
-const props = defineProps({
-  machine: {
-    type: Object,
-    required: true,
-  },
-  isVisible: {
-    type: Boolean,
-    required: true,
-  },
-});
+interface Machine {
+  title: string;
+  image: string;
+  type?: string;
+  x_travel_mm?: number;
+  y_travel_mm?: number;
+  z_travel_mm?: number;
+  laser_performance?: string;
+  positionaccuracy_x_y?: string;
+  accuracy_newposition?: string;
+  axle?: string;
+  manufacturer?: string;
+  built?: string;
+  width_mm?: number;
+  height_mm?: number;
+  specifications?: number;
+}
+
+const props = defineProps<{
+  machine: Machine;
+  isVisible: boolean;
+}>();
 
 const emit = defineEmits(['close']);
 
@@ -42,15 +54,13 @@ const closePopup = () => {
   emit('close');
 };
 
-// Funktion zur Formatierung der Spezifikationen
-const formatSpecifications = (machine) => {
+const formatSpecifications = (machine: Machine) => {
   const specs = [];
   if (machine.x_travel_mm) specs.push(`X-Verfahrweg: ${machine.x_travel_mm} mm`);
   if (machine.y_travel_mm) specs.push(`Y-Verfahrweg: ${machine.y_travel_mm} mm`);
   if (machine.z_travel_mm) specs.push(`Z-Verfahrweg: ${machine.z_travel_mm} mm`);
   if (machine.width_mm) specs.push(`Breite: ${machine.width_mm} mm`);
   if (machine.height_mm) specs.push(`Höhe: ${machine.height_mm} mm`);
-  // Füge hier zusätzliche Spezifikationen hinzu, die du anzeigen möchtest
   return specs.join(', ');
 };
 </script>

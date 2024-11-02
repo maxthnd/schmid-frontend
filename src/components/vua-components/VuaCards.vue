@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SchmidcardSmallmedium from "@/components/utils/schmidcard-smallmedium.vue";
+import SchmidcardSmallmedium from "../../components/utils/schmidcard-smallmedium.vue";
 const cardData = [
   { title: 'Leistungsspektrum', description: 'Das Leistungsspektrum der SCHMID GmbH ist in den letzten Jahren enorm gewachsen und ist in den Kernbereichen Vorrichtungsbau, Sondermaschinenbau, Automationsanlagen & Werkzeugbau tätig.', siteref: 'leistungsspektrum' },
   { title: 'CAD/CAM', description: 'Dank hochmoderner EDV unter der Anwendung aktuellster Software und langjährigen Erfahrungen mit geschultem Fachpersonal bietet die SCHMID GmbH höchste Professionalität und Flexibilität.', siteref: 'cad-cam' },

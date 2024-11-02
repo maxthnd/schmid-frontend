@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
+import Banner from "../../components/utils/Banner.vue";
 import LsCards from "../../components/ls-components/LsCards.vue";
 
 const leistungsspektrum_text = "Die SCHMID GmbH Vorrichtungs- und Anlagenbau wurde im Juni 1996 von Thilo Schmid als Metallbearbeitungsfirma / Schlosserei gegründet. Diesem Ursprung ist unsere Fertigung noch heute verbunden und kann dank des umfangreichen Maschinenparks einen Großteil der notwendigen Zuarbeiten im eigenen Haus durchführen. Mit den Jahren und der wachsenden Vielfalt an Kunden ist das Leistungsspektrum enorm gewachsen und weist heute folgende Kernbereiche auf:";

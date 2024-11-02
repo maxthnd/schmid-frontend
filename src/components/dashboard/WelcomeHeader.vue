@@ -1,6 +1,6 @@
 <script lang="ts">
 import { ref, computed, onMounted } from 'vue';
-import { userStore } from '@/store/userStore';
+import { userStore } from '../../store/userStore';
 
 export default {
   setup() {
@@ -13,7 +13,7 @@ export default {
 
     onMounted(() => {
       if (!user.value) {
-        store.fetchUserData().catch(error => {
+        store.fetchUserData().catch((error: Error) => {
           errorMessage.value = 'Fehler beim Laden der Benutzerdaten.';
           console.error(error);
         });

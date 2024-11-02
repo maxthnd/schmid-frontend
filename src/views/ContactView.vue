@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Banner from "@/components/utils/Banner.vue";
+import Banner from "../components/utils/Banner.vue";
 import { ref } from 'vue';
 
 const formData = ref({

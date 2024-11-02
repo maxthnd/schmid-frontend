@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import JobPopup from "@/components/cp-components/JobPopup.vue";
-import { fetchJobs } from "@/job/JobService";
-import { Job } from "@/job/Job";
+import JobPopup from "./JobPopup.vue";
+import { fetchJobs } from "../../job/JobService";
+import { Job } from "../../job/Job";
 const jobs = ref<Job[]>([]);
 
 const isPopupVisible = ref(false);
@@ -52,7 +52,7 @@ onMounted(async () => {
       </table>
       <JobPopup
           v-if="isPopupVisible"
-          :job="selectedJob"
+          :job="selectedJob || { title: '', image: '' }"
           :isVisible="isPopupVisible"
           @close="closePopup"
       />

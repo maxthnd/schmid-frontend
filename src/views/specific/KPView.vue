@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import Banner from "@/components/utils/Banner.vue";
-import KPJobBoard from "@/components/cp-components/KPJobBoard.vue";
+import Banner from "../../components/utils/Banner.vue";
+import KPJobBoard from "../../components/cp-components/KPJobBoard.vue";
 </script>
 
 <template>

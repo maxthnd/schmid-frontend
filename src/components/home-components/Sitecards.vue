@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SchmidcardMediumsmall from "@/components/utils/schmidcard-mediumsmall.vue";
+import SchmidcardMediumsmall from "../utils/schmidcard-mediumsmall.vue";
 
 const cardData = [
   { title: 'Messtechnik', backgroundImage: 'assets/images/faromessarmbanner.jpg', siteref: '/messtechnik' },
