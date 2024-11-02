@@ -3,9 +3,10 @@ import { ref, computed, onMounted } from 'vue';
 import SchmidcardMachinecard from "@/components/utils/schmidcard-machinecard.vue";
 import MachinePopup from "./MachinePopup.vue";
 
-const machineData = ref([]);
+// Typen anpassen
+const machineData = ref<Record<string, any[]>>({});
 const selectedMachineType = ref('Alle');
-const selectedMachine = ref(null);
+const selectedMachine = ref<{ title: string; image: string } | null>(null);
 const isPopupVisible = ref(false);
 
 const fetchMachineData = async () => {
@@ -25,11 +26,13 @@ const filteredCards = computed(() => {
   }
 });
 
+// Typ für selectMachineType kann optional sein
 const selectMachineType = (type: string) => {
   selectedMachineType.value = type;
 };
 
-const openPopup = (machine) => {
+// Typ für openPopup anpassen
+const openPopup = (machine: { title: string; image: string }) => {
   selectedMachine.value = machine;
   isPopupVisible.value = true;
   console.log(selectedMachine.value); // Debugging

@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import LoginView from '../views/MaintenanceView.vue';
+import MaintenanceView from '../views/MaintenanceView.vue';
+import axios from 'axios';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL), // Stellt sicher, dass BASE_URL korrekt ist
   routes: [
     {
       path: '/maintenance',
@@ -88,23 +89,21 @@ const router = createRouter({
   ]
 });
 
-import axios from 'axios';
-import MaintenanceView from "@/views/MaintenanceView.vue";
 axios.defaults.baseURL = 'http://localhost:8080';
 
 function isTokenExpired(token: string): boolean {
-  if(!token || token.split('.').length !== 3){
+  if (!token || token.split('.').length !== 3) {
     console.log('Invalid token format: ', token);
     return true;
   }
- try{
-   const payload = JSON.parse(atob(token.split('.')[1]));
-   const exp = payload.exp * 1000;
-   return Date.now() > exp;
- } catch(e){
-   console.error('Error decoding token: ', e)
-   return true;
- }
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    return Date.now() > exp;
+  } catch (e) {
+    console.error('Error decoding token: ', e);
+    return true;
+  }
 }
 
 function getTokenExpiration(token: string): number {
@@ -121,7 +120,7 @@ async function extendToken(token: string) {
     });
     const newToken = response.data.token;
     localStorage.setItem('jwtToken', newToken);
-    console.log("Token extended")
+    console.log("Token extended");
   } catch (error) {
     console.error('Could not extend Token:', error);
   }

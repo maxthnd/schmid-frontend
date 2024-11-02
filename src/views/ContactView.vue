@@ -12,9 +12,9 @@ const formData = ref({
   message: '',
 });
 
-const handleFileUpload = (event) => {
-  formData.value.machineFile = event.target.files[0];
-};
+interface FormData {
+  machineFile: File | null;
+}
 
 const submitForm = () => {
   console.log('Form Data:', formData.value);
