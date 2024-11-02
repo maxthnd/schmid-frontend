@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "title": "Vorrichtungsbau",
+      "description": "Maßgeschneidert auf Ihre Anwendung entwickeln wir aufeinander abgestimmte Komponenten, die sich durch Robustheit und Langlebigkeit auszeichnen.",
+      "details": "Präzise und zuverlässige Funktionen sowie einfaches Handling sind die wesentlichen Vorgaben bei der Konstruktion von Vorrichtungen für die unterschiedlichsten Anwendungen. Dabei sehen wir jede individuelle Aufgabenstellung als neue Herausforderung.",
+      "imageUrl": "/assets/images/leistungsspektrum/machines/vorrichtungsbau.png"
+    },
+    {
+      "title": "Sondermaschinenbau",
+      "description": "Das Herstellen von Sondermaschinen ist ein weiterer zentraler Tätigkeitsbereich der SCHMID GmbH.",
+      "details": "Die Lösungen, die wir unseren Kunden bieten, sind so vielfältig wie die zugrundeliegenden Anforderungen. Vom kleinen Handling bis hin zur kompletten, vollautomatischen Montage-Maschine – die SCHMID GmbH bietet alles aus einer Hand!",
+      "imageUrl": "/assets/images/leistungsspektrum/machines/Sondermaschinenbau.png"
+    },
+    {
+      "title": "Automationsanlagen",
+      "description": "Die SCHMID GmbH ist Ihr zuverlässiger Partner bei der Automatisierung industrieller Fertigungs- und Montageprozesse.",
+      "details": "Profitieren Sie bei der Entwicklung und Realisierung von Lösungskonzepten von unserem langjährigen Know-how. Durch die Kombination von kreativen Konzepten, modernster Technik und traditionellem Maschinenbau setzt die SCHMID GmbH Maßstäbe bei der Entwicklung und im Bau von Sondermaschinen für die Automobilindustrie und die Automobil-Zulieferindustrie, z. B. Handhabungssysteme, Materialflusssysteme und Sonderanlagen.",
+      "imageUrl": "/assets/images/leistungsspektrum/machines/Automationsanlagen.png"
+    },
+    {
+      "title": "Lehrenbau",
+      "description": "In dem Bereich Lehrenbau arbeiten wir mit bis zu 5-Achs-CNC-Fräsmaschinen und 2 Faro-Messarmen (siehe Maschinenpark).",
+      "details": "Hier fertigen wir Hilfsmessaufnahmen in Einfachstbauweise für den Werkzeugbau, bis hin zu komplizierten Prüflehren und Messaufnahmen mit Abfrageeinheiten. Die Konstruktion hierfür wird an modernsten CAD/CAM-Arbeitsplätzen in Tebis oder Catia V4/V5 nach Ihren Bauvorschriften gefertigt.",
+      "imageUrl": "/assets/images/leistungsspektrum/machines/lehrenbau.png"
+    }
+  ]
+}

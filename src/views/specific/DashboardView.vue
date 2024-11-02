@@ -1,0 +1,99 @@
+<script setup lang="ts">
+import WelcomeHeader from "@/components/dashboard/WelcomeHeader.vue";
+import { onMounted } from "vue";
+import { onUnmounted } from "vue";
+import JobBoard from "@/components/dashboard/JobBoard.vue";
+import {useRouter} from "vue-router";
+import axios from "axios";
+
+const router = useRouter();
+
+const checkToken = async () => {
+  const token = localStorage.getItem("dashboard");
+  if(!token){
+    router.push("/login");
+  } else{
+    try{
+      const response = await axios.get('/api/auth/validate-token', {headers: {Authorization: `Bearer ${token}`}});
+      if(!response.data.valid){
+        localStorage.removeItem('dashboard');
+        router.push("/login")
+      }
+    } catch(error){
+      localStorage.removeItem('dashboard');
+      router.push("/login")
+    }
+  }
+}
+
+const resetTimer = () => {
+  clearTimeout(logoutTimer);
+  logoutTimer = setTimeout(() => {
+    localStorage.removeItem('dashboard');
+    router.push('/login');
+  }, 7200000);
+};
+
+let logoutTimer: ReturnType<typeof setTimeout>;
+
+onMounted(() => {
+  checkToken();
+  window.addEventListener('mousemove', resetTimer);
+  resetTimer();
+});
+
+onUnmounted(() => {
+  window.removeEventListener('mousemove', resetTimer);
+  clearTimeout(logoutTimer);
+});
+
+
+</script>
+
+<template>
+  <div class="dashboard-view">
+    <div class="dashboard-content">
+      <div class="dashboard-header">
+        <WelcomeHeader></WelcomeHeader>
+      </div>
+      <div class="dashboard-body">
+        <JobBoard></JobBoard>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.dashboard-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 100px;
+
+}
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard-body{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.dashboard-view {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(#0a66c3, #002a9a);
+}
+</style>

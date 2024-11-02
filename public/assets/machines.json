@@ -1,0 +1,173 @@
+{
+  "fraesmaschinen": [
+    {
+      "title": "DMU 35 M",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU35.png",
+      "x_travel_mm": 500,
+      "y_travel_mm": 450,
+      "z_travel_mm": 400,
+      "axle": "5-Achsig",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 50 ECO",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU50.png",
+      "x_travel_mm": 500,
+      "y_travel_mm": 450,
+      "z_travel_mm": 400,
+      "axle": "5-Achsig",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 50 ECO",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU50ECO.png",
+      "x_travel_mm": 500,
+      "y_travel_mm": 450,
+      "z_travel_mm": 400,
+      "axle": "5-Achsig",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 70",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU70.png",
+      "x_travel_mm": 750,
+      "y_travel_mm": 600,
+      "z_travel_mm": 520,
+      "axle": "5-Achsig",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 80 P hidyn",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU80HYDIN.png",
+      "x_travel_mm": 800,
+      "y_travel_mm": 800,
+      "z_travel_mm": 800,
+      "axle": "5-Achsig-Simultan",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 95 Monoblock",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU95MB.png",
+      "x_travel_mm": 950,
+      "y_travel_mm": 850,
+      "z_travel_mm": 650,
+      "axle": "5-Achsig-Simultan",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 200 P",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMU95MB.png",
+      "x_travel_mm": 950,
+      "y_travel_mm": 850,
+      "z_travel_mm": 650,
+      "axle": "5-Achsig-Simultan",
+      "type": "Fräsmaschine"
+    },
+    {
+      "title": "DMU 340 GANTRY",
+      "image": "/assets/images/maschinenpark/machines/fraesmaschinen/DMGGANTRY340.png",
+      "x_travel_mm": 7000,
+      "y_travel_mm": 2800,
+      "z_travel_mm": 1500,
+      "axle": "5-Achsig",
+      "type": "Fräsmaschine"
+    }
+  ],
+  "messmaschinen": [
+    {
+      "title": "Faro Edge",
+      "image": "/assets/images/maschinenpark/machines/messmaschinen/FaroEdge.png",
+      "machinetype": "7-Achsen-Messarm",
+      "width_mm": 1800,
+      "height_mm": 3700,
+      "manufacturer": "Faro",
+      "built": 2012,
+      "controlling": "Metromec",
+      "type": "Messmaschine"
+    },
+    {
+      "title": "Faro Fusion",
+      "image": "/assets/images/maschinenpark/machines/messmaschinen/FaroFusion.png",
+      "machinetype": "7-Achsen-Messarm",
+      "width_mm": 1800,
+      "height_mm": 3700,
+      "manufacturer": "Faro",
+      "built": 2012,
+      "controlling": "Metromec",
+      "type": "Messmaschine"
+    },
+    {
+      "title": "Stiefelmayer",
+      "image": "/assets/images/maschinenpark/machines/messmaschinen/Stiefelmayer.png",
+      "machinetype": "7-Achsen-Messarm",
+      "x_travel_mm": 3500,
+      "y_travel_mm": 1500,
+      "z_travel_mm": 1800,
+      "manufacturer": "Stiefelmayer",
+      "built": 1994,
+      "controlling": "Metromec",
+      "type": "Messmaschine"
+    }
+  ],
+  "drehmaschinen": [
+    {
+      "title": "NEF 320 K",
+      "image": "/assets/images/maschinenpark/machines/drehmaschinen/NEF320K.png",
+      "machinetype": "Drehmaschine",
+      "manufacturer": "DMG",
+      "swing_diameter_mm": 320,
+      "travel_length_z_mm": 1000,
+      "spindle_nose": "A6",
+      "spindle_bore_mm": 60,
+      "chuck_diameter_mm": 250,
+      "max_rpm": 5000,
+      "torque_nm": 400,
+      "power_kw": 24.5,
+      "built": 2002,
+      "controlling": "Siemens SP7",
+      "type": "Drehmaschine"
+    }
+  ],
+  "brennplasmaschneiden": [
+    {
+      "title": "Microstep SPL",
+      "image": "/assets/images/maschinenpark/machines/plasmabrenner/MicrostepSPL.png",
+      "manufacturer": "Microstep",
+      "type": "Plasma-Autogen-Schneidanlage",
+      "travel_range_mm": "4500 x 2000",
+      "max_feed_rate_m_per_min": 30,
+      "max_rpm": 3000,
+      "cutting_thickness_mm": 150,
+      "plasma_source": "HiFocus 280l Kjielberg",
+      "power_kw": 13,
+      "built": 2007,
+      "controlling": "SMSNC-500",
+      "type": "Schneidanlage"
+    }
+  ],
+  "schleifmaschinen": [
+    {
+      "title": "Präzisions-Flachschleifmaschine",
+      "image": "/assets/images/maschinenpark/machines/schleifmaschinen/FlatGrinder.png",
+      "manufacturer": "Voth",
+      "type": "Präzisions-Flachschleifmaschine",
+      "travel_range_mm": "1500 x 600 x 600",
+      "built": 2001,
+      "type": "Schleifmaschine"
+    }
+  ],
+  "laser": [
+    {
+      "title": "BODOR i5",
+      "image": "/assets/images/maschinenpark/machines/laser/i5.jpg",
+      "manufacturer": "BODOR",
+      "machine_size": "2980 x 2220 x 1970mm",
+      "type": "Laser",
+      "laser_performance": "6000W / 3000W / 1500W",
+      "positionaccuracy_x_y": "+0.05mm/m",
+      "accuracy_newposition": "+0.03mm",
+      "x_y_max_connectingspeed": "91m/min",
+      "maximum_speed": "1.5G"
+    }
+  ]
+}
