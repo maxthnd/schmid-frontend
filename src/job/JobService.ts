@@ -1,5 +1,5 @@
 import {Job} from "./Job";
-const API_URL = "http://localhost:8080/api/job";
+const API_URL = "http://164.92.187.212:8080/api/job";
 const TOKEN = "dashboard";
 
 export async function fetchJobs(): Promise<Job[]> {
