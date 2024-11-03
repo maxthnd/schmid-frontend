@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import axios from 'axios';
-axios.defaults.baseURL = 'https://164.92.187.212:8080';
+axios.defaults.baseURL = 'https://164.92.187.212';
 
 export default {
   data() {
