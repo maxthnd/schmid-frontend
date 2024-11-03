@@ -89,7 +89,7 @@ const router = createRouter({
   ]
 });
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://164.92.187.212:8080';
 
 function isTokenExpired(token: string): boolean {
   if (!token || token.split('.').length !== 3) {
