@@ -23,7 +23,7 @@ export const userStore = defineStore('user', {
                     return;
                 }
 
-                const url = `https://164.92.187.212/api/user?username=${username || ''}`;
+                const url = `https://api.maximilian-decker.com/api/user?username=${username || ''}`;
                 console.log("Sende Anfrage an:", url);
 
                 const response = await axios.get(url, {

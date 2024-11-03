@@ -89,7 +89,7 @@ const router = createRouter({
   ]
 });
 
-axios.defaults.baseURL = 'https://164.92.187.212';
+axios.defaults.baseURL = 'https://api.maximilian-decker.com';
 
 function isTokenExpired(token: string): boolean {
   if (!token || token.split('.').length !== 3) {

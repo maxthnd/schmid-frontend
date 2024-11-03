@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Banner from "../../components/utils/Banner.vue";
-
 const messtechnik_text = "Um den hohen Anforderungen unserer Kunden gerecht zu werden, ist es für uns selbstverständlich die Qualität unserer CAD/CAM Technik gefertigten Produkte entsprechend zu kontrollieren und zu dokumentieren. Dazu setzen wir die entsprechende Messtechnik mit dem erforderlichen Messmitteln und Systemen ein. In Ergänzung unserer Stieflmayer Messmaschine arbeiten wir mit Hilfe hochflexibler FARO-Arme. Dadurch gelingt es uns für alle Bauteile und Dienstleistungen, eine Gleichbleibende Güte zu erreichen. Unabhängig davon, wie die Messaufgabe aussieht, bieten wir Ihnen 3D-Prüfungen, CAD-zu-Bauteil-Vergleich, Ausrichtugnen oder Reverse Engineering mit Hilfe von usneren Messarmen FARO Edge und FARO Fusion an. Alle unseren Messgeräte sind mit der Software Metromec der Firma WENZEL Metromec AG ausgestattet.";
 const messtechnik_title = "Messtechnik";
 </script>
