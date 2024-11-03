@@ -28,7 +28,7 @@ export default {
 
     const login = async () => {
       try {
-        const loginResponse = await axios.post('http://164.92.187.212:8080/api/auth/login', {
+        const loginResponse = await axios.post('https://164.92.187.212:8080/api/auth/login', {
           username: username.value,
           password: password.value
         });

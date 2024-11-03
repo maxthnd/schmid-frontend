@@ -23,7 +23,7 @@ export const userStore = defineStore('user', {
                     return;
                 }
 
-                const url = `http://164.92.187.212:8080/api/user?username=${username || ''}`;
+                const url = `https://164.92.187.212:8080/api/user?username=${username || ''}`;
                 console.log("Sende Anfrage an:", url);
 
                 const response = await axios.get(url, {
