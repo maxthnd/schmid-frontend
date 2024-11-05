@@ -27,6 +27,14 @@ const checkToken = async () => {
     }
   }
 }
+onMounted(() => {
+  checkToken();
+});
+
+onUnmounted(() => {
+  checkToken();
+});
+
 
 </script>
 
