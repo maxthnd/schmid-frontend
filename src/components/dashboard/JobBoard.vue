@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import JobUpdatePopup from "@/components/cp-components/JobUpdatePopup.vue";
-import { Job } from "@/job/Job";
+import JobUpdatePopup from "../../components/cp-components/JobUpdatePopup.vue";
+import { Job } from "../../job/Job";
 import { fetchJobs, deleteJob } from "../../job/JobService";
 
 const jobs = ref<Job[]>([]);
