@@ -137,4 +137,89 @@ const carouselItems = [
   padding: 10px;
   border-radius: 50%;
 }
+
+/* Media Queries for responsiveness */
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+  .carousel-caption h2 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+
+  .overlay-logo {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .carousel {
+    height: 60vh;
+  }
+
+  .carousel-caption h2 {
+    font-size: 2rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+
+  .overlay-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 6%;
+  }
+
+  .carousel-control-prev {
+    left: 15px;
+  }
+
+  .carousel-control-next {
+    right: 15px;
+  }
+}
+
+/* For extra small screens (e.g., very small mobile devices) */
+@media (max-width: 480px) {
+  .carousel {
+    height: 50vh;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+
+  .overlay-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 8%;
+  }
+
+  .carousel-control-prev {
+    left: 10px;
+  }
+
+  .carousel-control-next {
+    right: 10px;
+  }
+}
 </style>
+

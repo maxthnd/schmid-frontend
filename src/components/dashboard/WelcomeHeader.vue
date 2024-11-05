@@ -11,12 +11,25 @@ export default {
     const firstName = computed(() => user.value?.firstName ?? '');
     const lastName = computed(() => user.value?.lastName ?? '');
 
+
     onMounted(() => {
       if (!user.value) {
-        store.fetchUserData().catch((error: Error) => {
-          errorMessage.value = 'Fehler beim Laden der Benutzerdaten.';
-          console.error(error);
-        });
+        const dashboardToken = localStorage.getItem('dashboardToken');
+        if (dashboardToken) {
+          try {
+            const tokenData = JSON.parse(dashboardToken);
+            const username = tokenData.username;
+            store.fetchUserData(username).catch((error: Error) => {
+              errorMessage.value = 'Fehler beim Laden der Benutzerdaten.';
+              console.error(error);
+            });
+          } catch (error) {
+            errorMessage.value = 'Ungültiges Dashboard-Token.';
+            console.error(error);
+          }
+        } else {
+          errorMessage.value = 'Kein Dashboard-Token im localStorage gefunden.';
+        }
       }
     });
 

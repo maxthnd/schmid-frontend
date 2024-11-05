@@ -1,6 +1,7 @@
 <script lang="ts">
 import { ref, onMounted } from 'vue';
 import { defineComponent } from 'vue';
+import CardTopic from "../../components/core/CardTopic.vue";
 
 interface Service {
   title: string;
@@ -10,6 +11,7 @@ interface Service {
 }
 
 export default defineComponent({
+  components: {CardTopic},
   setup() {
     const services = ref<Service[]>([]);
 
@@ -24,7 +26,6 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      console.log('LsCards component mounted');
       fetchServices();
     });
 
