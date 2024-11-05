@@ -40,6 +40,7 @@ const carouselItems = [
     </button>
   </div>
 </template>
+
 <style scoped>
 .carousel {
   width: 100vw;
@@ -54,13 +55,15 @@ const carouselItems = [
 }
 
 .carousel-item img {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
 }
 
 .overlay {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .overlay::before {
@@ -82,6 +85,7 @@ const carouselItems = [
   color: white;
   z-index: 2;
   text-align: center;
+  max-width: 90%;
 }
 
 .carousel-caption h2 {
@@ -93,11 +97,9 @@ const carouselItems = [
   font-size: 1.5rem;
 }
 
-.overlay-logo {
+.overlay-logo img {
   width: 200px;
   height: 200px;
-  display: block;
-  margin: 0 auto;
   object-fit: contain;
   z-index: 3;
   position: relative;
@@ -150,7 +152,7 @@ const carouselItems = [
     font-size: 1.2rem;
   }
 
-  .overlay-logo {
+  .overlay-logo img {
     width: 150px;
     height: 150px;
   }
@@ -159,7 +161,7 @@ const carouselItems = [
 /* For mobile devices */
 @media (max-width: 768px) {
   .carousel {
-    height: 60vh;
+    height: 100vh;
   }
 
   .carousel-caption h2 {
@@ -170,7 +172,7 @@ const carouselItems = [
     font-size: 1rem;
   }
 
-  .overlay-logo {
+  .overlay-logo img {
     width: 120px;
     height: 120px;
   }
@@ -192,7 +194,7 @@ const carouselItems = [
 /* For extra small screens (e.g., very small mobile devices) */
 @media (max-width: 480px) {
   .carousel {
-    height: 50vh;
+    height: 100vh;
   }
 
   .carousel-caption h2 {
@@ -203,7 +205,7 @@ const carouselItems = [
     font-size: 0.9rem;
   }
 
-  .overlay-logo {
+  .overlay-logo img {
     width: 100px;
     height: 100px;
   }
@@ -222,4 +224,3 @@ const carouselItems = [
   }
 }
 </style>
-

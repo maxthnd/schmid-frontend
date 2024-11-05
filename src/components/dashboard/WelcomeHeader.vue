@@ -14,7 +14,7 @@ export default {
 
     onMounted(() => {
       if (!user.value) {
-        const dashboardToken = localStorage.getItem('dashboardToken');
+        const dashboardToken = localStorage.getItem('dashboard');
         if (dashboardToken) {
           try {
             const tokenData = JSON.parse(dashboardToken);
