@@ -33,7 +33,7 @@ const deleteSelectedJob = async (jobId: number) => {
 };
 
 const deleteAllJobsHandler = async () => {
-  isModalVisible.value = true;
+  console.log("Function is disabled.")
   setTimeout(() => {
     isModalVisible.value = false;
   }, 5000);
@@ -42,8 +42,8 @@ const deleteAllJobsHandler = async () => {
 
 const addJob = async () => {
   isPopupVisible.value = true;
-};
-
+  console.log("Function is disabled.")
+}
 </script>
 
 <template>
@@ -53,7 +53,7 @@ const addJob = async () => {
         <h4>Aktuelle Stellenanzeigen</h4>
       </div>
       <div class="jobboard-elements">
-        <button type="button" class="btn btn-success" @click="openJobPopup({ title: '', jobType: '', description: '', location: '', expectations: [], work: [], imageData: null })">Hinzufügen</button>
+        <button type="button" class="btn btn-success" @click="addJob">Hinzufügen</button>
         <button type="button" class="btn btn-danger" @click="deleteAllJobsHandler">Alle Entfernen</button>
       </div>
     </div>
@@ -92,56 +92,6 @@ const addJob = async () => {
           :isVisible="isPopupVisible"
           @close="closePopup"
           @save="addJob"
-      />
-    </div>
-  </div>
-</template>
-
-<template>
-  <div class="dashboard-jobboard">
-    <div class="jobboard-header">
-      <div class="jobboard-title">
-        <h4>Aktuelle Stellenanzeigen</h4>
-      </div>
-      <div class="jobboard-elements">
-        <button type="button" class="btn btn-success" @click="addJob">Hinzufügen</button>
-        <button type="button" class="btn btn-danger" @click="">Alle Entfernen</button>
-      </div>
-    </div>
-    <div class="jobboard-body">
-      <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-          <th>Stelle</th>
-          <th>Art der Beschäftigung</th>
-          <th>Ort</th>
-          <th>Aktionen</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="job in jobs" :key="job.id">
-          <td>{{ job.title }}</td>
-          <td>{{ job.jobType }}</td>
-          <td>{{ job.location }}</td>
-          <td class="job-elements">
-            <button class="btn btn-primary btn-sm" @click="openJobPopup(job)">Bearbeiten</button>
-            <button class="btn btn-danger btn-sm" @click="deleteJob(job.id)">Löschen</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <p>Job wurde erfolgreich gelöscht.</p>
-          </div>
-        </div>
-      </div>
-      <JobUpdatePopup
-          v-if="isPopupVisible"
-          :job="selectedJob || { title: '', image: '' }"
-          :isVisible="isPopupVisible"
-          @close="closePopup"
       />
     </div>
   </div>
