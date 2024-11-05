@@ -3,7 +3,10 @@ const props = defineProps<{
   title?: string;
   titleImage?: string;
   description?: string;
-  siteref?: string;
+  siteref?:  {
+    type: String,
+    default: '#',
+  }
 }>();
 </script>
 
