@@ -23,7 +23,7 @@ export const userStore = defineStore('user', {
                     return;
                 }
 
-                const url = `https://api.maximilian-decker.com/api/user?username=${username || ''}`;
+                const url = `https://api.maximilian-decker.com/api/user?username=${username}`;
                 console.log("Sende Anfrage an:", url);
 
                 const response = await axios.get(url, {
@@ -45,7 +45,6 @@ export const userStore = defineStore('user', {
                     userData.roles || []
                 );
                 this.setUser(user);
-
                 console.log('Benutzer im Store gesetzt:', this.user);
             } catch (error) {
                 console.error("Fehler beim Laden der Benutzerdaten:", error);
