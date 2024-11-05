@@ -11,6 +11,7 @@ const router = useRouter();
 const checkToken = async () => {
   const token = localStorage.getItem("dashboard");
   if(!token){
+    console.log("Der Token ist nicht valid! - DashboardView")
     await router.push("/login");
   } else{
     try{
