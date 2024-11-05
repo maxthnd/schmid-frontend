@@ -17,7 +17,9 @@ export default {
         const dashboardToken = localStorage.getItem('dashboard');
         if (dashboardToken) {
           try {
-            const tokenData = JSON.parse(dashboardToken);
+            const payload = dashboardToken.split('.')[1];
+            const decodedPayload = atob(payload);
+            const tokenData = JSON.parse(decodedPayload);
             const username = tokenData.username;
             store.fetchUserData(username).catch((error: Error) => {
               errorMessage.value = 'Fehler beim Laden der Benutzerdaten.';
@@ -32,6 +34,7 @@ export default {
         }
       }
     });
+
 
     return {
       user,

@@ -1,24 +1,49 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import {onMounted, ref} from 'vue';
+import JobPopup from "@/components/cp-components/JobPopup.vue";
+import {Job} from "@/job/Job";
+import {fetchJobs} from "@/job/JobService";
 
-const jobs = ref([
-  { id: 1, title: 'Softwareentwickler', type: 'Vollzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 2, title: 'Marketing Manager', type: 'Teilzeit', location: 'Stein a.K.' },
-  { id: 3, title: 'Auszubildender', type: 'Ausbildung', location: 'Stein a.K.' },
-]);
+const jobs = ref<Job[]>([]);
 
-const editJob = (jobId: number) => {
-  console.log("Job bearbeiten:", jobId);
+const isPopupVisible = ref(false);
+const selectedJob = ref<Job | null>(null);
+const isModalVisible = ref(false);
+
+const openJobPopup = (job: Job) => {
+  selectedJob.value = job;
+  isPopupVisible.value = true;
 };
 
-const deleteJob = (jobId: number) => {
-  jobs.value = jobs.value.filter(job => job.id !== jobId);
+const closePopup = () => {
+  isPopupVisible.value = false;
+  selectedJob.value = null;
 };
+
+onMounted(async () => {
+  jobs.value = await fetchJobs();
+});
+
+const deleteJob = async (jobId: number) => {
+  await deleteJob(jobId)
+  isModalVisible.value = true;
+  setTimeout(() => {
+    isModalVisible.value = false;
+  }, 5000);
+  jobs.value = await fetchJobs();
+};
+const deleteAllJobs = async () => {
+  await deleteAllJobs()
+  isModalVisible.value = true;
+  setTimeout(() => {
+    isModalVisible.value = false;
+  }, 5000);
+  jobs.value = await fetchJobs();
+};
+
+const addJob = async (job: Job) => {
+
+}
 </script>
 
 <template>
@@ -28,8 +53,8 @@ const deleteJob = (jobId: number) => {
         <h4>Aktuelle Stellenanzeigen</h4>
       </div>
       <div class="jobboard-elements">
-        <button type="button" class="btn btn-success">Hinzufügen</button>
-        <button type="button" class="btn btn-danger">Alle Entfernen</button>
+        <button type="button" class="btn btn-success" @click="">Hinzufügen</button>
+        <button type="button" class="btn btn-danger" @click="deleteAllJobs">Alle Entfernen</button>
       </div>
     </div>
     <div class="jobboard-body">
@@ -45,15 +70,28 @@ const deleteJob = (jobId: number) => {
         <tbody>
         <tr v-for="job in jobs" :key="job.id">
           <td>{{ job.title }}</td>
-          <td>{{ job.type }}</td>
+          <td>{{ job.jobType }}</td>
           <td>{{ job.location }}</td>
           <td class="job-elements">
-            <button class="btn btn-primary btn-sm" @click="editJob(job.id)">Bearbeiten</button>
+            <button class="btn btn-primary btn-sm" @click="openJobPopup(job)">Bearbeiten</button>
             <button class="btn btn-danger btn-sm" @click="deleteJob(job.id)">Löschen</button>
           </td>
         </tr>
         </tbody>
       </table>
+      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <p>Job wurde erfolgreich gelöscht.</p>
+          </div>
+        </div>
+      </div>
+      <JobPopup
+          v-if="isPopupVisible"
+          :job="selectedJob || { title: '', image: '' }"
+          :isVisible="isPopupVisible"
+          @close="closePopup"
+      />
     </div>
   </div>
 </template>
@@ -99,5 +137,11 @@ table {
   flex-direction: row;
   gap: 15px;
   flex-wrap: wrap;
+}
+.success-gif {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto 10px;
 }
 </style>

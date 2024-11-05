@@ -140,8 +140,6 @@ const carouselItems = [
   border-radius: 50%;
 }
 
-/* Media Queries for responsiveness */
-
 /* For tablets and small desktops */
 @media (max-width: 1024px) {
   .carousel-caption h2 {
