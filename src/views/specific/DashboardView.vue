@@ -16,10 +16,9 @@ const checkToken = async () => {
   } else{
     try{
       const response = await axios.get('/api/auth/validate-token', {headers: {Authorization: `Bearer ${token}`}});
-      console.log(response.data);
-      if(!response.data.valid){
+      if(!(response.status === 200)){
         localStorage.removeItem('dashboard');
-        await router.push("/login")
+        await router.push('/login');
       }
     } catch(error){
       localStorage.removeItem('dashboard');
@@ -27,12 +26,26 @@ const checkToken = async () => {
     }
   }
 }
+
+const resetTimer = () => {
+  clearTimeout(logoutTimer);
+  logoutTimer = setTimeout(() => {
+    localStorage.removeItem('dashboard');
+    router.push('/login');
+  }, 7200000);
+};
+
+let logoutTimer: ReturnType<typeof setTimeout>;
+
 onMounted(() => {
   checkToken();
+  window.addEventListener('mousemove', resetTimer);
+  resetTimer();
 });
 
 onUnmounted(() => {
-  checkToken();
+  window.removeEventListener('mousemove', resetTimer);
+  clearTimeout(logoutTimer);
 });
 
 
