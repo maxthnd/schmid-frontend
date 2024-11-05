@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineProps({
-  title: String,
-  titleImage: String,
-  description: String,
-  ref: String
-});
+const props = defineProps<{
+  title?: string;
+  titleImage?: string;
+  description?: string;
+  ref?: string;
+}>();
 </script>
 
 <template>
