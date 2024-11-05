@@ -11,17 +11,18 @@ const router = useRouter();
 const checkToken = async () => {
   const token = localStorage.getItem("dashboard");
   if(!token){
-    router.push("/login");
+    await router.push("/login");
   } else{
     try{
       const response = await axios.get('/api/auth/validate-token', {headers: {Authorization: `Bearer ${token}`}});
+      console.log(response.data);
       if(!response.data.valid){
         localStorage.removeItem('dashboard');
-        router.push("/login")
+        await router.push("/login")
       }
     } catch(error){
       localStorage.removeItem('dashboard');
-      router.push("/login")
+      await router.push("/login")
     }
   }
 }
