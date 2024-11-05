@@ -85,9 +85,9 @@ const props = defineProps({
       title: "",
       jobType: "",
       description: "",
-      expectations: [],
-      work: [],
-      imageData: null,
+      expectations: [] as string[],
+      work: [] as string[],
+      imageData: null as string | null,
     })
   },
   isVisible: {
@@ -103,22 +103,27 @@ const imageSrc = ref(props.job.imageData ? `data:image/png;base64,${props.job.im
 
 const isEditing = computed(() => !!props.job && !!props.job.title);
 
-const onImageUpload = (event) => {
-  const file = event.target.files[0];
+const onImageUpload = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  const file = target?.files ? target.files[0] : null;
+
   if (file) {
     const reader = new FileReader();
-    reader.onload = (e) => {
-      imageSrc.value = e.target.result;
-      editableJob.value.imageData = imageSrc.value;
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+      const result = e.target?.result;
+      if (typeof result === "string") {
+        imageSrc.value = result;
+        editableJob.value.imageData = imageSrc.value;
+      }
     };
     reader.readAsDataURL(file);
   }
 };
 
 const addExpectation = () => editableJob.value.expectations.push("");
-const removeExpectation = (index) => editableJob.value.expectations.splice(index, 1);
+const removeExpectation = (index: number) => editableJob.value.expectations.splice(index, 1);
 const addWork = () => editableJob.value.work.push("");
-const removeWork = (index) => editableJob.value.work.splice(index, 1);
+const removeWork = (index: number) => editableJob.value.work.splice(index, 1);
 
 const saveJob = () => {
   emit('save', editableJob.value);

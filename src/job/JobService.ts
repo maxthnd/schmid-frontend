@@ -27,15 +27,11 @@ export async function fetchJobs(): Promise<Job[]> {
 
 export async function createJob(job: Partial<Job>, file?: File): Promise<Job | null> {
     try {
-        // Prüfen, ob eine Datei übergeben wurde
         if (file) {
-            // Datei in Base64 umwandeln
             const base64File = await fileToBase64(file);
-            // Base64-Daten zu `imageData` hinzufügen
             job.imageData = base64File;
         }
 
-        // API-Aufruf zur Erstellung des Jobs
         const response = await fetch(`${API_URL}/secured/create`, {
             method: "POST",
             headers: {
