@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
           <h3>{{ item.title }}</h3>
           <ul v-if="item.submenu.length">
             <li v-for="(subItem, subIdx) in item.submenu" :key="subIdx">
-              <a :href="subItem.url">{{ subItem.name }}</a>
+              <RouterLink :to="subItem.url">{{ subItem.name }}</RouterLink>
             </li>
           </ul>
         </div>

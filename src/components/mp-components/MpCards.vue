@@ -53,14 +53,14 @@ const closePopup = () => {
         {{ selectedMachineType }}
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a
+        <RouterLink
             class="dropdown-item"
-            href="#"
+            to="#"
             v-for="type in ['Alle', 'Fraesmaschinen', 'Messmaschinen', 'Drehmaschinen', 'Brennplasmaschneiden', 'Schleifmaschinen', 'Laser']"
             :key="type"
             @click.prevent="selectMachineType(type)">
           {{ type }}
-        </a>
+        </RouterLink>
       </div>
     </div>
 

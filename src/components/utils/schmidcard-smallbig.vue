@@ -13,7 +13,7 @@ defineProps({
     <div class="content">
       <h5>{{ title }}</h5>
       <p>{{ description }}</p>
-      <a :href="ref" class="btn btn-primary">Mehr erfahren</a>
+      <RouterLink :to=ref class="btn btn-primary">Mehr erfahren</RouterLink>
     </div>
   </div>
 </template>

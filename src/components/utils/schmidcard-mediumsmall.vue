@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <div class="card-ms" :style="{ backgroundImage: `url(${backgroundImage})` }">
-    <a :href="reference" class="btn btn-primary" target="_self">{{ title }}</a>
+    <RouterLink :to=reference class="btn btn-primary" target="_self">{{ title }}</RouterLink>
   </div>
 </template>
 

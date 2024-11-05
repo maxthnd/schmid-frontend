@@ -8,8 +8,6 @@ defineProps({
 <template>
   <div class="card-ms">
     <div class="blur-background" :style="{ backgroundImage: `url(${image})` }"></div>
-
-    <!-- Inhalt der Karte -->
     <div class="content">
       <h5>{{ title }}</h5>
     </div>

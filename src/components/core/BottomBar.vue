@@ -5,9 +5,9 @@
 <template>
   <div class="bottom-bar">
     <ul class="navbar">
-      <li><a href="/impressum">Impressum</a></li>
-      <li><a href="/datenschutz">Datenschutz</a></li>
-      <li><a href="/contact">Kontakt</a></li>
+      <li><RouterLink to="/impressum">Impressum</RouterLink></li>
+      <li><RouterLink to="/datenschutz">Datenschutz</RouterLink></li>
+      <li><RouterLink to="/contact">Kontakt</RouterLink></li>
     </ul>
   </div>
 </template>
