@@ -56,14 +56,9 @@
         </div>
         <button @click="addWork" class="btn small">Tätigkeit hinzufügen</button>
 
-        <!-- Image Upload -->
         <label for="imageUpload">Bild hochladen:</label>
         <input type="file" id="imageUpload" @change="onImageUpload" class="input-field" />
-
-        <!-- Display uploaded image preview -->
         <img v-if="imageSrc" :src="imageSrc" alt="Job Bild" class="preview-image" />
-
-        <!-- Save Button -->
         <button @click="saveJob" class="btn primary">{{ isEditing ? "Speichern" : "Erstellen" }}</button>
       </div>
     </div>
