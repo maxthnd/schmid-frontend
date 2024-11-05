@@ -3,10 +3,7 @@ const props = defineProps<{
   title?: string;
   titleImage?: string;
   description?: string;
-  ref?: {
-    type: String,
-    default: '#',
-  }
+  link?: string;
 }>();
 </script>
 
@@ -16,7 +13,7 @@ const props = defineProps<{
     <div class="content">
       <h5>{{ title }}</h5>
       <p>{{ description }}</p>
-      <RouterLink :to=ref class="btn btn-primary">Mehr erfahren</RouterLink>
+      <RouterLink :to="link || '#'" class="btn btn-primary">Mehr erfahren</RouterLink>
     </div>
   </div>
 </template>

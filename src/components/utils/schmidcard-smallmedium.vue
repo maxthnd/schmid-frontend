@@ -3,10 +3,7 @@ const props = defineProps<{
   title?: string;
   titleImage?: string;
   description?: string;
-  siteref?:  {
-    type: String,
-    default: '#',
-  }
+  link?: string;
 }>();
 </script>
 
@@ -15,7 +12,7 @@ const props = defineProps<{
     <div class="content">
       <h5>{{ title }}</h5>
       <p>{{ description }}</p>
-      <RouterLink :to=siteref class="btn btn-primary">{{title}}</RouterLink>
+      <RouterLink :to="link || '#'" class="btn btn-primary">{{title}}</RouterLink>
     </div>
   </div>
 </template>
