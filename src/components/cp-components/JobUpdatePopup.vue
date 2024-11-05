@@ -33,8 +33,6 @@
             placeholder="Beschreibung eingeben"
             class="input-field"
         ></textarea>
-
-        <!-- Expectations -->
         <label>Unsere Erwartungen:</label>
         <div v-for="(expectation, index) in editableJob.expectations" :key="'expectation-' + index" class="list-item">
           <input
@@ -46,8 +44,6 @@
           <button @click="removeExpectation(index)">x</button>
         </div>
         <button @click="addExpectation" class="btn small">Erwartung hinzufügen</button>
-
-        <!-- Daily Work -->
         <label>Dein Alltag bei uns:</label>
         <div v-for="(work, index) in editableJob.work" :key="'work-' + index" class="list-item">
           <input

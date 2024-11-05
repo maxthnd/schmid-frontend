@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import JobUpdatePopup from "@/components/cp-components/JobUpdatePopup.vue";
 import { Job } from "@/job/Job";
-import { fetchJobs, deleteJob, deleteAllJobs } from "../../job/JobService";
+import { fetchJobs, deleteJob } from "../../job/JobService";
 
 const jobs = ref<Job[]>([]);
 const isPopupVisible = ref(false);
@@ -23,8 +23,8 @@ onMounted(async () => {
   jobs.value = await fetchJobs();
 });
 
-const deleteSelectedJob = async (jobId: number) => { // Name geändert, um Konflikte zu vermeiden
-  await deleteJob(jobId); // deleteJob von JobService aufrufen
+const deleteSelectedJob = async (jobId: number) => {
+  await deleteJob(jobId);
   isModalVisible.value = true;
   setTimeout(() => {
     isModalVisible.value = false;
@@ -32,8 +32,7 @@ const deleteSelectedJob = async (jobId: number) => { // Name geändert, um Konfl
   jobs.value = await fetchJobs();
 };
 
-const deleteAllJobsHandler = async () => { // Name geändert, um Konflikte zu vermeiden
-  await deleteAllJobs(); // deleteAllJobs von JobService aufrufen
+const deleteAllJobsHandler = async () => {
   isModalVisible.value = true;
   setTimeout(() => {
     isModalVisible.value = false;
@@ -41,9 +40,8 @@ const deleteAllJobsHandler = async () => { // Name geändert, um Konflikte zu ve
   jobs.value = await fetchJobs();
 };
 
-// addJob-Handler zum Hinzufügen eines neuen Jobs, wenn das Popup geschlossen wird
-const addJob = async (job: Job) => {
-  jobs.value.push(job);
+const addJob = async () => {
+  isPopupVisible.value = true;
 };
 
 </script>
@@ -106,8 +104,8 @@ const addJob = async (job: Job) => {
         <h4>Aktuelle Stellenanzeigen</h4>
       </div>
       <div class="jobboard-elements">
-        <button type="button" class="btn btn-success" @click="">Hinzufügen</button>
-        <button type="button" class="btn btn-danger" @click="deleteAllJobs">Alle Entfernen</button>
+        <button type="button" class="btn btn-success" @click="addJob">Hinzufügen</button>
+        <button type="button" class="btn btn-danger" @click="">Alle Entfernen</button>
       </div>
     </div>
     <div class="jobboard-body">
