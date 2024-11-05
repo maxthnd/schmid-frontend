@@ -28,28 +28,6 @@ const checkToken = async () => {
   }
 }
 
-const resetTimer = () => {
-  clearTimeout(logoutTimer);
-  logoutTimer = setTimeout(() => {
-    localStorage.removeItem('dashboard');
-    router.push('/login');
-  }, 7200000);
-};
-
-let logoutTimer: ReturnType<typeof setTimeout>;
-
-onMounted(() => {
-  checkToken();
-  window.addEventListener('mousemove', resetTimer);
-  resetTimer();
-});
-
-onUnmounted(() => {
-  window.removeEventListener('mousemove', resetTimer);
-  clearTimeout(logoutTimer);
-});
-
-
 </script>
 
 <template>
