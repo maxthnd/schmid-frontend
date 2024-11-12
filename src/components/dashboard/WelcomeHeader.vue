@@ -21,10 +21,11 @@ export default {
             const decodedPayload = atob(payload);
             const tokenData = JSON.parse(decodedPayload);
             const username = tokenData.username;
-            store.fetchUserData(username).catch((error: Error) => {
+            const responseData = store.fetchUserData(username).catch((error: Error) => {
               errorMessage.value = 'Fehler beim Laden der Benutzerdaten.';
               console.error(error);
             });
+            console.log(responseData);
           } catch (error) {
             errorMessage.value = 'Ungültiges Dashboard-Token.';
             console.error(error);
