@@ -145,7 +145,7 @@ watch(() => props.job, (newJob) => {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 20px; /* Abstand, damit das Popup bei kleinen Viewports Platz hat */
+  padding: 20px;
 }
 .popup-content {
   background: #ffffff;
