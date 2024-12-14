@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "route": "/favicon.ico",
+      "serve": "/favicon.ico"
+    },
+    {
+      "route": "/assets/*",
+      "serve": "/assets/"
+    },
+    {
       "route": "/*",
       "serve": "/index.html",
       "statusCode": 200

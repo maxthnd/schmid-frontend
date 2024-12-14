@@ -5,57 +5,62 @@
       <h2>{{ isEditing ? "Job Bearbeiten" : "Job Erstellen" }}</h2>
 
       <div class="job-form">
-        <!-- Job Title -->
-        <label for="jobTitle">Job Title:</label>
-        <input
-            id="jobTitle"
-            type="text"
-            v-model="editableJob.title"
-            placeholder="Job Titel"
-            class="input-field"
-        />
-
-        <!-- Job Type -->
-        <label for="jobType">Job Type:</label>
-        <input
-            id="jobType"
-            type="text"
-            v-model="editableJob.jobType"
-            placeholder="Job Typ"
-            class="input-field"
-        />
-
-        <!-- Description -->
-        <label for="description">Beschreibung:</label>
-        <textarea
-            id="description"
-            v-model="editableJob.description"
-            placeholder="Beschreibung eingeben"
-            class="input-field"
-        ></textarea>
-        <label>Unsere Erwartungen:</label>
-        <div v-for="(expectation, index) in editableJob.expectations" :key="'expectation-' + index" class="list-item">
+        <div class="job-title">
+          <label for="jobTitle">Job Title:</label>
           <input
+              id="jobTitle"
               type="text"
-              v-model="editableJob.expectations[index]"
-              placeholder="Erwartung hinzufügen"
-              class="input-field small"
+              v-model="editableJob.title"
+              placeholder="Job Titel"
+              class="input-field"
           />
-          <button @click="removeExpectation(index)">x</button>
         </div>
-        <button @click="addExpectation" class="btn small">Erwartung hinzufügen</button>
-        <label>Dein Alltag bei uns:</label>
-        <div v-for="(work, index) in editableJob.work" :key="'work-' + index" class="list-item">
+        <div class="job-type">
+          <label for="jobType">Job Type:</label>
           <input
+              id="jobType"
               type="text"
-              v-model="editableJob.work[index]"
-              placeholder="Tätigkeit hinzufügen"
-              class="input-field small"
+              v-model="editableJob.jobType"
+              placeholder="Job Typ"
+              class="input-field"
           />
-          <button @click="removeWork(index)">x</button>
-        </div>
-        <button @click="addWork" class="btn small">Tätigkeit hinzufügen</button>
 
+        </div>
+        <div class="job-description">
+          <label for="description">Beschreibung:</label>
+          <textarea
+              id="description"
+              v-model="editableJob.description"
+              placeholder="Beschreibung eingeben"
+              class="input-field"
+          ></textarea>
+        </div>
+        <div class="job-expectations">
+          <label>Unsere Erwartungen:</label>
+          <div v-for="(expectation, index) in editableJob.expectations" :key="'expectation-' + index" class="list-item">
+            <input
+                type="text"
+                v-model="editableJob.expectations[index]"
+                placeholder="Erwartung hinzufügen"
+                class="input-field small"
+            />
+            <button @click="removeExpectation(index)">x</button>
+          </div>
+          <button @click="addExpectation" class="btn small">Erwartung hinzufügen</button>
+        </div>
+        <div class="job-doings">
+          <label>Dein Alltag bei uns:</label>
+          <div v-for="(work, index) in editableJob.work" :key="'work-' + index" class="list-item">
+            <input
+                type="text"
+                v-model="editableJob.work[index]"
+                placeholder="Tätigkeit hinzufügen"
+                class="input-field small"
+            />
+            <button @click="removeWork(index)">x</button>
+          </div>
+          <button @click="addWork" class="btn small">Tätigkeit hinzufügen</button>
+        </div>
         <label for="imageUpload">Bild hochladen:</label>
         <input type="file" id="imageUpload" @change="onImageUpload" class="input-field" />
         <img v-if="imageSrc" :src="imageSrc" alt="Job Bild" class="preview-image" />
@@ -128,7 +133,6 @@ watch(() => props.job, (newJob) => {
   imageSrc.value = newJob.imageData ? `data:image/png;base64,${newJob.imageData}` : null;
 }, { immediate: true });
 </script>
-
 <style scoped>
 .popup-overlay {
   position: fixed;
@@ -141,16 +145,22 @@ watch(() => props.job, (newJob) => {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px; /* Abstand, damit das Popup bei kleinen Viewports Platz hat */
 }
 .popup-content {
   background: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   color: #000;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
 }
 .input-field {
   width: 100%;
@@ -201,4 +211,8 @@ watch(() => props.job, (newJob) => {
   border-radius: 8px;
   margin-top: 10px;
 }
+.job-form {
+  flex-wrap: wrap;
+}
 </style>
+
